@@ -61,7 +61,23 @@ shopify theme check
 
 ## Screenshots
 
-See [`screenshots/`](screenshots/). _(Add rendered screenshots of the storefront — see the note in that folder.)_
+Live renders of the four custom sections on a Dawn demo storefront (demo content — no client data).
+
+### Custom Slideshow — split-panel hero
+![Custom Slideshow section on desktop](screenshots/custom-slideshow-desktop.png)
+![Custom Slideshow section on mobile](screenshots/custom-slideshow-mobile.png)
+
+### General Banner — collection banner
+![General Banner section on desktop](screenshots/general-banner-desktop.png)
+![General Banner section on mobile](screenshots/general-banner-mobile.png)
+
+### Custom Grid Section — lookbook grid
+![Custom Grid section on desktop](screenshots/custom-grid-desktop.jpg)
+![Custom Grid section on mobile](screenshots/custom-grid-mobile.png)
+
+### Custom Tabs — product information tabs
+![Custom Tabs section on desktop](screenshots/custom-tabs-desktop.png)
+![Custom Tabs section on mobile](screenshots/custom-tabs-mobile.png)
 
 ---
 
