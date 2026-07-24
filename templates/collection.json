@@ -103,21 +103,11 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "genral_banner_XEjrNt": {
-      "type": "genral-banner",
-      "name": "Default General Banner",
-      "settings": {
-        "show_image": true,
-        "image": "shopify://shop_images/woman-puts-hand-in-pocket.jpg",
-        "color_scheme": "scheme-1"
-      }
     }
   },
   "order": [
     "banner",
     "product-grid",
-    "multicolumn_tVVVHj",
-    "genral_banner_XEjrNt"
+    "multicolumn_tVVVHj"
   ]
 }
