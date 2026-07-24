@@ -1,0 +1,236 @@
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "text_LWUbMa": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>New Arrival<\/strong>",
+            "text_style": "body"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Discover Our \u2028New Collection",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "BUY Now",
+            "button_link_1": "shopify:\/\/collections\/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text_LWUbMa",
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/scandinavian-interior-mockup-wall-decal-background_1.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-right",
+        "show_text_box": true,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-45cb2f12-9ce4-41f6-8895-42aee23e860c",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "collection_list_PNcNWB": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_aatYwY": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dining"
+          }
+        },
+        "featured_collection_TxGX9z": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "living"
+          }
+        },
+        "featured_collection_RakeXh": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bedroom"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_aatYwY",
+        "featured_collection_TxGX9z",
+        "featured_collection_RakeXh"
+      ],
+      "settings": {
+        "title": "Browse The Range",
+        "heading_size": "h2",
+        "paragraph_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_BXWBwn": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Collection",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "our-products",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-f840658d-d1a1-476e-b2b8-2e5ce2d94943",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "funiroslider_eqYw3e": {
+      "type": "funiroslider",
+      "blocks": {
+        "slide_A3BMpU": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/s1.png",
+            "slide_link": "",
+            "slide_text": "Inner Peace",
+            "slide_text-para": "01--Bed Room",
+            "arrow_button_link": ""
+          }
+        },
+        "slide_LTmtdL": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/s1.png",
+            "slide_link": "",
+            "slide_text": "",
+            "slide_text-para": "",
+            "arrow_button_link": ""
+          }
+        },
+        "slide_eajf9f": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/s2.png",
+            "slide_link": "",
+            "slide_text": "",
+            "slide_text-para": "",
+            "arrow_button_link": ""
+          }
+        },
+        "slide_FY4grT": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/s3.png",
+            "slide_link": "",
+            "slide_text": "",
+            "slide_text-para": "",
+            "arrow_button_link": ""
+          }
+        },
+        "slide_pQiXBr": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/s2.png",
+            "slide_link": "",
+            "slide_text": "",
+            "slide_text-para": "",
+            "arrow_button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_A3BMpU",
+        "slide_LTmtdL",
+        "slide_eajf9f",
+        "slide_FY4grT",
+        "slide_pQiXBr"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "background_color": "#f3f3f3",
+        "heading": "50+ Beautiful rooms  inspiration",
+        "paragraph": "Our designer already made a lot of beautiful prototipe of rooms that inspire you",
+        "button_color": "#b88e2f",
+        "button_text_color": "#ffffff",
+        "button_text": "Explore More",
+        "button_link": ""
+      }
+    },
+    "custom_grid_MXfcCX": {
+      "type": "custom-grid",
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "paragraph_text": "Share your setup with",
+        "heading_text": "#FuniroFurniture",
+        "image_1": "shopify:\/\/shop_images\/g9.png",
+        "link_1": "",
+        "image_2": "shopify:\/\/shop_images\/g2-2.png",
+        "link_2": "",
+        "image_3": "shopify:\/\/shop_images\/g4.png",
+        "link_3": "",
+        "image_4": "shopify:\/\/shop_images\/g5.png",
+        "link_4": "",
+        "image_center": "shopify:\/\/shop_images\/g2.png",
+        "link_center": "",
+        "image_5": "shopify:\/\/shop_images\/g3.png",
+        "link_5": "",
+        "image_6": "shopify:\/\/shop_images\/tabel_2.png",
+        "link_6": "",
+        "image_7": "shopify:\/\/shop_images\/g6.png",
+        "link_7": "",
+        "image_8": "shopify:\/\/shop_images\/g7.png",
+        "link_8": ""
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "collection_list_PNcNWB",
+    "featured_collection_BXWBwn",
+    "funiroslider_eqYw3e",
+    "custom_grid_MXfcCX"
+  ]
+}

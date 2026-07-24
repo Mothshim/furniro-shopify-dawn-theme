@@ -1,0 +1,30 @@
+# --- OS / editor ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Shopify CLI ---
+.shopify/
+*.log
+
+# --- Secrets / credentials (never commit) ---
+.env
+.env.*
+*.pem
+*.key
+credentials*
+secrets*
+
+# --- Archives / deps ---
+*.zip
+node_modules/
+
+# NOTE: config/settings_data.json IS tracked in this repo on purpose —
+# it is required for the theme to install and has been verified to contain
+# only empty demo content (no store domain, socials, or IDs).

@@ -1,0 +1,553 @@
+<style>
+  .search-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+  }
+  .blog-search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  #search-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  #search-results {
+    position: absolute;
+    top: 100%;
+    /* Position below the input */
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    display: none;
+    /* Hide by default */
+    z-index: 1000;
+    /* Ensure it's above other elements */
+  }
+
+  #search-results a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+
+  #search-results a:hover {
+    background: #f5f5f5;
+  }
+  .blog-search-container .categories ul {
+    list-style: none;
+    display: contents;
+  }
+  .blog-search-container .categories ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .blog-search-container .categories h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .blog-search-container {
+    position: absolute;
+    top: 510px;
+    right: 130px;
+    width: 25%;
+  }
+  :root {
+    --fixed-height: 62px;
+    /* Fixed height */
+    --remaining-height: calc(100% - var(--fixed-height));
+    /* Calculate remaining height */
+    --calculated-height: calc(var(--remaining-height) * 33.33 / 100);
+    /* Calculate height */
+  }
+
+  .ak__card-list {
+    height: 100%;
+    /* Set height */
+  }
+
+  .ak__blog__maincontainer {
+    width: 100%;
+  }
+
+  .multi-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: var(--calculated-height);
+    padding-bottom: 20px;
+  }
+
+  .ak__card-list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .ak__card-list .ak_custom_blog_v-article .article-card > .card__inner {
+    width: 180px;
+  }
+
+  .ak__card-list .ak__ep__heading {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 2rem 0;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    text-transform: uppercase;
+    font-family: Montserrat
+    , sans-serif;
+    font-weight: 700;
+    background: white;
+    color: black;
+  }
+  .multi-row .card:not(.ratio) {
+    display: flex;
+    flex-direction: row;
+    /* border-top: 0.1rem solid rgb(187, 188, 188); */
+  }
+
+  .multi-row .ak__subheading {
+    display: none;
+  }
+
+
+  .ak__card-list .ak_custom_blog_v-article .article-card > .card__inner {
+    width: 180px;
+  }
+
+
+  .ak__card-list .ak_custom_blog_v-article .article-card > .card__content {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+  }
+  .ak__card-list .ak_custom_blog_v-article .article-card > .card__content .card__information {
+    padding: 0;
+  }
+
+  .ak__card-list .ak_custom_blog_v-article .article-card > .card__content .card__information .card__heading {
+    font-size: 14px;
+    line-height: 18px;
+    height: 36px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-transform: uppercase;
+  }
+
+  .ak__card-list .ak_custom_blog_v-article .article-card > .card__content .card__information .article-card__excerpt {
+    font-size: 14px;
+    line-height: 21px;
+    height: 42px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    margin: 0;
+  }
+  .ak__card-list .ak_custom_blog_v-article .article-card > .card__content .card__information .ak__subheading__article {
+    font-size: 14px;
+    line-height: 19px;
+    width: 100%;
+    text-decoration: underline;
+    font-weight: 700;
+  }
+  @media (max-width: 990px) {
+    .blog-search-container .search-container {
+      display: none;
+    }
+    .blog-search-container .categories {
+      display: none;
+    }
+    .blog-search-container .section-outer-container {
+      padding: 0;
+    }
+    .blog-search-container {
+      position: unset;
+      width: 100%;
+    }
+  }
+</style>
+
+<div class=" blog-search-container">
+
+  <div class="search-container">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="{{ section.settings.placeholder_text }}">
+    <button id="search-button">
+      <i class="{{ section.settings.button_icon_class }}"></i>
+    </button>
+    <div id="search-results"></div>
+  </div>
+
+  {% if section.settings.show_categories %}
+    <div class="categories">
+      <h2>Categories</h2>
+      <ul>
+        <li>{{ section.settings.category_1 }}
+          <span>{{ section.settings.category_1_count }}</span>
+        </li>
+        <li>{{ section.settings.category_2 }}
+          <span>{{ section.settings.category_2_count }}</span>
+        </li>
+        <li>{{ section.settings.category_3 }}
+          <span>{{ section.settings.category_3_count }}</span>
+        </li>
+        <li>{{ section.settings.category_4 }}
+          <span>{{ section.settings.category_4_count }}</span>
+        </li>
+        <li>{{ section.settings.category_5 }}
+          <span>{{ section.settings.category_5_count }}</span>
+        </li>
+      </ul>
+    </div>
+  {% endif %}
+
+  <div class="section-outer-container" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; background-color: {{ section.settings.background_color }};">
+    <div class="ak__blog__maincontainer">
+      <div class="blog-articles">
+        {% for block in section.blocks %}
+          {% if block.type == 'article' %}
+            {% render 'article-card'
+              ,
+ blog: section.settings.blog
+              ,
+ article: block.settings.article
+              ,
+ media_aspect_ratio: 1.33
+              ,
+ show_image: true
+              ,
+ show_date: true
+              ,
+ show_author: true
+              ,
+ show_excerpt: true
+              ,
+ show_additional_text: true
+              ,
+ show_article_text: false
+            %}
+          {% endif %}
+        {% endfor %}
+
+        <div class="ak__card-list">
+          <div class="ak__ep__heading">
+            {{ section.settings.titlename }}
+          </div>
+          {% for block in section.blocks %}
+            {% if block.type == 'article_row' %}
+              <div class="multi-row ak_custom_blog_v-article">
+                {% render 'article-card'
+                  ,
+ blog: section.settings.blog
+                  ,
+ article: block.settings.article
+                  ,
+ media_aspect_ratio: 1.00
+                  ,
+ show_image: true
+                  ,
+ show_excerpt: false
+                  ,
+ show_author: false
+                  ,
+ show_date: true 
+                  ,
+ show_additional_text: false
+                  ,
+ show_article_text: false
+                %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Article Search",
+    "settings": [
+      {
+        "type": "text",
+        "id": "placeholder_text",
+        "label": "Placeholder Text",
+        "default": "Search articles..."
+      },
+      {
+        "type": "text",
+        "id": "button_icon_class",
+        "label": "Button Icon Class",
+        "default": "fa fa-search"
+      },
+      {
+        "type": "header",
+        "content": "Categories"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_categories",
+        "label": "Show Categories",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "category_1",
+        "label": "Category 1",
+        "default": "Crafts"
+      },
+      {
+        "type": "text",
+        "id": "category_1_count",
+        "label": "Category 1 Count",
+        "default": "2"
+      },
+      {
+        "type": "text",
+        "id": "category_2",
+        "label": "Category 2",
+        "default": "8"
+      },
+      {
+        "type": "text",
+        "id": "category_2_count",
+        "label": "Category 2 Count",
+        "default": "8"
+      },
+      {
+        "type": "text",
+        "id": "category_3",
+        "label": "Category 3",
+        "default": "Handmade"
+      },
+      {
+        "type": "text",
+        "id": "category_3_count",
+        "label": "Category 3 Count",
+        "default": "7"
+      },
+      {
+        "type": "text",
+        "id": "category_4",
+        "label": "Category 4",
+        "default": "Interior"
+      },
+      {
+        "type": "text",
+        "id": "category_4_count",
+        "label": "Category 4 Count",
+        "default": "1"
+      },
+      {
+        "type": "text",
+        "id": "category_5",
+        "label": "Category 5",
+        "default": "Wood"
+      },
+      {
+        "type": "text",
+        "id": "category_5_count",
+        "label": "Category 5 Count",
+        "default": "6"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "titlename",
+        "default": "Recent Posts",
+        "label": "Main Heading"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Slideshow Title"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Top Padding",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Bottom Padding",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 0
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      }
+    ],
+    "max_blocks": 5,
+    "blocks": [
+      {
+        "type": "article",
+        "name": "Article Block 1",
+        "settings": [
+          {
+            "type": "article",
+            "id": "article",
+            "label": "Select Article"
+          }
+        ]
+      },
+
+      {
+        "type": "article_row",
+        "name": "Article Row Block",
+        "settings": [
+          {
+            "type": "article",
+            "id": "article",
+            "label": "Select Article"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Default",
+        "category": "All"
+      },
+      {
+        "name": "Crafts Focus",
+        "category": "Crafts",
+        "settings": {
+          "placeholder_text": "Search crafts...",
+          "button_icon_class": "fa fa-search",
+          "show_categories": true,
+          "category_1": "Crafts",
+          "category_1_count": "2",
+          "category_2": "Sewing",
+          "category_2_count": "5",
+          "category_3": "Knitting",
+          "category_3_count": "3",
+          "category_4": "Embroidery",
+          "category_4_count": "4",
+          "category_5": "Crochet",
+          "category_5_count": "6"
+        }
+      },
+      {
+        "name": "Handmade Focus",
+        "category": "Handmade",
+        "settings": {
+          "placeholder_text": "Search handmade...",
+          "button_icon_class": "fa fa-hand-paper",
+          "show_categories": true,
+          "category_1": "Handmade",
+          "category_1_count": "7",
+          "category_2": "Art",
+          "category_2_count": "3",
+          "category_3": "Decor",
+          "category_3_count": "4",
+          "category_4": "Jewelry",
+          "category_4_count": "2",
+          "category_5": "Woodwork",
+          "category_5_count": "1"
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var searchInput = document.getElementById('search-input');
+    var searchResults = document.getElementById('search-results');
+  
+    searchInput.addEventListener('input', function() {
+      var query = searchInput.value.trim();
+      if (query.length > 0) {
+        fetchSearchResults(query);
+        searchResults.style.display = 'block'; // Show results container
+      } else {
+        searchResults.style.display = 'none'; // Hide if input is empty
+      }
+    });
+  
+    // Handle click outside to close results
+    document.addEventListener('click', function(event) {
+      var isClickInsideSearch = searchInput.contains(event.target) || searchResults.contains(event.target);
+      if (!isClickInsideSearch) {
+        searchResults.style.display = 'none'; // Hide results container
+      }
+    });
+  
+    // Prevent closing results when clicking inside the results container
+    searchResults.addEventListener('click', function(event) {
+      event.stopPropagation(); // Prevent the click event from bubbling up
+    });
+  
+    // Fetch search results function
+    function fetchSearchResults(query) {
+      fetch(`/search/suggest.json?q=${query}&resources[type]=article&resources[options][unavailable_products]=last`)
+        .then(response => response.json())
+        .then(data => {
+          displaySearchResults(data.resources.results.articles);
+        })
+        .catch(error => console.error('Error fetching search results:', error));
+    }
+  
+    // Display search results function
+    function displaySearchResults(articles) {
+      var resultsContainer = document.getElementById('search-results');
+      resultsContainer.innerHTML = '';
+  
+      if (articles.length === 0) {
+        resultsContainer.innerHTML = '<p>No results found.</p>';
+        return;
+      }
+  
+      articles.forEach(article => {
+        var articleLink = document.createElement('a');
+        articleLink.href = article.url;
+        articleLink.textContent = article.title;
+        resultsContainer.appendChild(articleLink);
+      });
+    }
+  });
+</script>

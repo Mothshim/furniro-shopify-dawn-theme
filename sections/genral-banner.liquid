@@ -1,0 +1,86 @@
+{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  @media screen and (max-width: 749px) {
+    .collection-hero--with-image .collection-hero__inner {
+      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
+    }
+  }
+{%- endstyle -%}
+<div class="collection-hero{% if section.settings.show_image and section.settings.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  <div class="collection-hero__inner  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    <div class="collection-hero__text-wrapper">
+      {% unless template.name == 'product' %}
+        <h1 class="collection-hero__title">
+          <span class="visually-hidden">Banner Title:</span>
+
+          {% if page.title %}
+            {{ page.title }}
+          {% else %}
+            {{ template.name }}
+          {% endif %}
+        </h1>
+      {% endunless %}
+      <div class="page-width product-page-style">
+        {% render 'breadcrumbs' %}
+      </div>
+    </div>
+
+    {%- if section.settings.show_image and section.settings.image -%}
+      <div class="collection-hero__image-container media gradient">
+        <img
+          srcset="
+          {%- if section.settings.image.width >= 165 -%}{{ section.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+          {%- if section.settings.image.width >= 360 -%}{{ section.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+          {%- if section.settings.image.width >= 535 -%}{{ section.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
+          {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+          {%- if section.settings.image.width >= 1070 -%}{{ section.settings.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+          {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+          {{ section.settings.image | image_url }} {{ section.settings.image.width }}w
+        "
+          src="{{ section.settings.image | image_url: width: 750 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+          alt="{{ section.settings.image.alt | escape }}"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}">
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "General Banner",
+    "class": "section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_image",
+        "default": false,
+        "label": "Show Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color Scheme",
+        "default": "scheme-1"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Default General Banner",
+        "category": "Banner",
+        "settings": {
+          "show_image": true,
+          "image": "shopify://shop_images/your_default_image.jpg",
+          "color_scheme": "scheme-1"
+        }
+      }
+    ]
+  }
+{% endschema %}

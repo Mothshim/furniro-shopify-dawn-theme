@@ -1,0 +1,159 @@
+{
+  "sections": {
+    "genral_banner_ixiE4z": {
+      "type": "genral-banner",
+      "settings": {
+        "show_image": true,
+        "image": "shopify:\/\/shop_images\/g2-2.png",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": true,
+        "show_author": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "blog_search_HGeCF4": {
+      "type": "blog-search",
+      "blocks": {
+        "article_row_eEjy3C": {
+          "type": "article_row",
+          "settings": {
+            "article": "news\/going-all-in-with-millennial-design-2"
+          }
+        },
+        "article_row_kCYVgA": {
+          "type": "article_row",
+          "settings": {
+            "article": "news\/exploring-new-ways-of-decorating-1"
+          }
+        },
+        "article_row_68VLWB": {
+          "type": "article_row",
+          "settings": {
+            "article": "news\/going-all-in-with-millennial-design-1"
+          }
+        },
+        "article_row_ULCAwj": {
+          "type": "article_row",
+          "settings": {
+            "article": "news\/going-all-in-with-millennial-design-1"
+          }
+        },
+        "article_row_37Hdpb": {
+          "type": "article_row",
+          "settings": {
+            "article": "news\/exploring-new-ways-of-decorating-1"
+          }
+        }
+      },
+      "block_order": [
+        "article_row_eEjy3C",
+        "article_row_kCYVgA",
+        "article_row_68VLWB",
+        "article_row_ULCAwj",
+        "article_row_37Hdpb"
+      ],
+      "settings": {
+        "placeholder_text": "Search crafts...",
+        "button_icon_class": "fa fa-search",
+        "show_categories": true,
+        "category_1": "Crafts",
+        "category_1_count": "2",
+        "category_2": "Sewing",
+        "category_2_count": "5",
+        "category_3": "Knitting",
+        "category_3_count": "3",
+        "category_4": "Embroidery",
+        "category_4_count": "4",
+        "category_5": "Crochet",
+        "category_5_count": "6",
+        "titlename": "Recent Posts",
+        "title": "",
+        "padding_top": 70,
+        "padding_bottom": 0,
+        "background_color": "#ffffff"
+      }
+    },
+    "multicolumn_kpN473": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_JJhdT9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/trophy_cd84d13b-445f-4e16-a9f3-155c4a2c2cdb.png",
+            "title": "High Quality",
+            "text": "<p>crafted from top materials<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_H7aeHL": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/accept.png",
+            "title": "Warranty Protection",
+            "text": "<p>Over 2 years<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FDq4Yd": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/delivery-box.png",
+            "title": "Free Shipping",
+            "text": "<p>Order over 150 $<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_QQKnTV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/woman-with-headphones-and-microphone.png",
+            "title": "24 \/ 7 Support",
+            "text": "<p>Dedicated support<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_JJhdT9",
+        "column_H7aeHL",
+        "column_FDq4Yd",
+        "column_QQKnTV"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-45cb2f12-9ce4-41f6-8895-42aee23e860c",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "genral_banner_ixiE4z",
+    "main",
+    "blog_search_HGeCF4",
+    "multicolumn_kpN473"
+  ]
+}

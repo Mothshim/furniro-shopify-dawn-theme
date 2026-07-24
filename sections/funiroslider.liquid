@@ -1,0 +1,328 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<style>
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  :root {
+    --swiper-theme-color: #b88e2f;
+    --swiper-navigation-size: 20px;
+  }
+  .swiper-button-next::before,
+  .swiper-button-prev::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    box-shadow: 0 4px 14px 1px #00000029;
+  }
+  .ff__card_slider__slider .swiper-button-next {
+    right: 20px;
+  }
+  .ff__card_slider__slider .swiper-button-prev {
+    left: 20px;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    font-weight: bolder;
+  }
+
+  .swiper-slide a {
+    display: block;
+    width: 100%;
+  }
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  .ff__card_slider__slider .swiper-button-next,
+  .ff__card_slider__slider .swiper-button-prev {
+    display: block;
+  }
+  .ff__card_slider__slider .swiper-button-next.swiper-button-disabled,
+  .swiper-button-prev.swiper-button-disabled {
+    opacity: 0;
+  }
+  .ff__card_slider__slider .swiper-pagination-bullet {
+    width: 11px;
+    height: 11px;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+  }
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .slide-text-overlay {
+    position: absolute;
+    bottom: 10%;
+    background: #FFFFFFB8;
+    color: #3A3A3A;
+    width: 55%;
+    text-align: center;
+    left: 10%;
+  }
+  .arrow-button {
+    position: absolute;
+    right: -14%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #b88e2f;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+  }
+  .arrow-icon {
+    font-size: 24px;
+    color: #ffffff;
+  }
+
+  .slide-text-overlay:hover .arrow-button {
+    display: block;
+    /* Show the button when hovering over the overlay */
+  }
+
+  .ff__card_slider-{{ section.id }}
+  .ff__card_slider__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+  .ff__card_slider-{{ section.id }}
+  .ff__card_slider__card h1 {
+    margin: 0;
+  }
+  .ff__card_slider-{{ section.id }}
+  .ff__card_slider_inner {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .ff__card_slider-{{ section.id }}
+  .ff__card_slider_inner .ff__card_slider__slider {
+    grid-column: span 2 / span 2;
+  }
+  @media (max-width: 990px) {
+    .ff__card_slider-{{ section.id }} .ff__card_slider_inner {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+
+</style>
+
+<section class="ff__card_slider-{{ section.id }} section-{{ section.id }}-padding" style="background-color: {{ section.settings.background_color }}">
+  <div class="page-width">
+    <div class="ff__card_slider_inner">
+      <div class="ff__card_slider__card">
+        <h1>{{ section.settings.heading }}</h1>
+        <p>{{ section.settings.paragraph }}</p>
+        <div class="banner__buttons">
+          <a
+            href="{{ section.settings.button_link }}"
+            class="button"
+            style="background-color: {{ section.settings.button_color }}; color: {{ section.settings.button_text_color }}">
+            {{ section.settings.button_text | escape }}
+          </a>
+        </div>
+      </div>
+      <div class="ff__card_slider__slider">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% if block.type == 'slide' %}
+                <div class="swiper-slide">
+                  <a href="{{ block.settings.slide_link }}">
+                    {%- if block.settings.slide_image -%}
+                      {{ block.settings.slide_image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '400, 600, 900, 1200', sizes: '(min-width: 750px) 66vw, 100vw', alt: block.settings.slide_image.alt }}
+                    {%- endif -%}
+                  </a>
+                  <div class="slide-text-overlay">
+                    <p>{{ block.settings['slide_text-para'] }}</p>
+                    <h2>{{ block.settings.slide_text }}</h2>
+                    <button href="{{ block.settings.arrow_button_link }}" class="arrow-button">
+                      <span class="arrow-icon">&#x2192;</span>
+                    </button>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Custom Slideshow",
+    "settings": [
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 52
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "This is a heading"
+      },
+      {
+        "type": "textarea",
+        "id": "paragraph",
+        "label": "Paragraph",
+        "default": "This is a paragraph."
+      },
+      {
+        "type": "color",
+        "id": "button_color",
+        "label": "Button Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Click Me"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "slide_image",
+            "label": "Slide Image"
+          },
+          {
+            "type": "url",
+            "id": "slide_link",
+            "label": "Slide Link"
+          },
+          {
+            "type": "text",
+            "id": "slide_text",
+            "label": "Slide Text"
+          },
+          {
+            "type": "text",
+            "id": "slide_text-para",
+            "label": "Slide Text"
+          },
+          {
+            "type": "url",
+            "id": "arrow_button_link",
+            "label": "Arrow Button Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Slideshow",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
+
+<!-- Swiper JS (deferred so it does not block parsing; init runs on DOMContentLoaded, after deferred scripts execute) -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Swiper === 'undefined') return;
+    new Swiper('.mySwiper', {
+      cssMode: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      mousewheel: true,
+      keyboard: true,
+      slidesPerView: 2,
+      spaceBetween: 20,
+    });
+  });
+</script>
