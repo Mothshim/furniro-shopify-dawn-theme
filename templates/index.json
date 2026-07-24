@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -6,14 +15,14 @@
         "text_LWUbMa": {
           "type": "text",
           "settings": {
-            "text": "<strong>New Arrival<\/strong>",
+            "text": "<strong>New Arrival</strong>",
             "text_style": "body"
           }
         },
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Discover Our \u2028New Collection",
+            "heading": "Discover Our  New Collection",
             "heading_size": "h1"
           }
         },
@@ -28,7 +37,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "BUY Now",
-            "button_link_1": "shopify:\/\/collections\/all",
+            "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -43,7 +52,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/scandinavian-interior-mockup-wall-decal-background_1.png",
+        "image": "shopify://shop_images/scandinavian-interior-mockup-wall-decal-background_1.png",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "desktop_content_position": "middle-right",
@@ -131,7 +140,7 @@
         "slide_A3BMpU": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify:\/\/shop_images\/s1.png",
+            "slide_image": "shopify://shop_images/s1.png",
             "slide_link": "",
             "slide_text": "Inner Peace",
             "slide_text-para": "01--Bed Room",
@@ -141,7 +150,7 @@
         "slide_LTmtdL": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify:\/\/shop_images\/s1.png",
+            "slide_image": "shopify://shop_images/s1.png",
             "slide_link": "",
             "slide_text": "",
             "slide_text-para": "",
@@ -151,7 +160,7 @@
         "slide_eajf9f": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify:\/\/shop_images\/s2.png",
+            "slide_image": "shopify://shop_images/s2.png",
             "slide_link": "",
             "slide_text": "",
             "slide_text-para": "",
@@ -161,7 +170,7 @@
         "slide_FY4grT": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify:\/\/shop_images\/s3.png",
+            "slide_image": "shopify://shop_images/s3.png",
             "slide_link": "",
             "slide_text": "",
             "slide_text-para": "",
@@ -171,7 +180,7 @@
         "slide_pQiXBr": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify:\/\/shop_images\/s2.png",
+            "slide_image": "shopify://shop_images/s2.png",
             "slide_link": "",
             "slide_text": "",
             "slide_text-para": "",
@@ -205,23 +214,23 @@
         "padding_bottom": 40,
         "paragraph_text": "Share your setup with",
         "heading_text": "#FuniroFurniture",
-        "image_1": "shopify:\/\/shop_images\/g9.png",
+        "image_1": "shopify://shop_images/g9.png",
         "link_1": "",
-        "image_2": "shopify:\/\/shop_images\/g2-2.png",
+        "image_2": "shopify://shop_images/g2-2.png",
         "link_2": "",
-        "image_3": "shopify:\/\/shop_images\/g4.png",
+        "image_3": "shopify://shop_images/g4.png",
         "link_3": "",
-        "image_4": "shopify:\/\/shop_images\/g5.png",
+        "image_4": "shopify://shop_images/g5.png",
         "link_4": "",
-        "image_center": "shopify:\/\/shop_images\/g2.png",
+        "image_center": "shopify://shop_images/g2.png",
         "link_center": "",
-        "image_5": "shopify:\/\/shop_images\/g3.png",
+        "image_5": "shopify://shop_images/g3.png",
         "link_5": "",
-        "image_6": "shopify:\/\/shop_images\/tabel_2.png",
+        "image_6": "shopify://shop_images/tabel_2.png",
         "link_6": "",
-        "image_7": "shopify:\/\/shop_images\/g6.png",
+        "image_7": "shopify://shop_images/g6.png",
         "link_7": "",
-        "image_8": "shopify:\/\/shop_images\/g7.png",
+        "image_8": "shopify://shop_images/g7.png",
         "link_8": ""
       }
     }
